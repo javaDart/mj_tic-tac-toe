@@ -1,7 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
 
 ## App : Jeu de morpion
 creation d'un jeu de morpion interactif avec ReactJS.
@@ -18,3 +14,5 @@ Ce jeu
 ## How run the game ?
 ### git clone https://github.com/javaDart/mj_tic-tac-toe.git
 ### cd mj_tic-tac-toe && npm install && npm start
+
+# Enjoy yoursef !!!
