@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import swal from '@sweetalert/with-react';
+import swal from "@sweetalert/with-react";
 import "./index.css";
 
 function Square(props) {
@@ -39,7 +39,6 @@ class Board extends React.Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
-        {/* <ol>{movess}</ol> */}
       </div>
     );
   }
@@ -114,12 +113,13 @@ class Game extends React.Component {
       );
     });
     let status;
-    if (winner) {
-      status = winner + " a gagné !";
-      swal(status + " a gagné !");
-    } else {
-      status = "Prochain joueur : " + (this.state.xIsNext ? "M" : "J");
-    }
+    status = winner
+      ? swal({
+          title: "Bravo, " + winner + " a gagné !",
+          icon: "success",
+          button: "Rejouer !"
+        }).then(_reload)
+      : "Prochain joueur : " + (this.state.xIsNext ? "M" : "J");
     return (
       <div className="game-wrapper">
         <h1>{ticTacToe}</h1>
@@ -139,7 +139,7 @@ class Game extends React.Component {
   }
 }
 
-// ======================================== //
+// ======================================== // window.location.reload()
 
 ReactDOM.render(<Game />, document.getElementById("root"));
 
@@ -162,4 +162,8 @@ function calculateWinner(squares) {
     }
   }
   return null;
+}
+
+function _reload() {
+  window.location.reload();
 }
