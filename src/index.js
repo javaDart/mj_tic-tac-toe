@@ -105,7 +105,7 @@ class Game extends React.Component {
     const moves = history.map((step, move) => {
       const desc = move
         ? "Revenir au tour N° " + move
-        : "Revenir au debut de la partie";
+        : "Revenir au début de la partie";
       return (
         <li className="part-list" key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -139,7 +139,7 @@ class Game extends React.Component {
   }
 }
 
-// ======================================== // window.location.reload()
+// ======================================== //
 
 ReactDOM.render(<Game />, document.getElementById("root"));
 
