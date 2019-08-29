@@ -1,62 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import swal from "@sweetalert/with-react";
 import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from "./components/Footer";
+import Board from "./components/Board";
 
-function Square(props) {
-  return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
-}
-
-class Board extends React.Component {
-  renderSquare(i) {
-    return (
-      <Square
-        value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
-      />
-    );
-  }
-
-  render() {
-    return (
-      <div className="board">
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
-
-class Footer extends React.Component {
-  render() {
-    return (
-      <footer>
-        <p>
-          Powered by <a href="https://javadart.github.io">Juslin</a>
-        </p>
-      </footer>
-    );
-  }
-}
-
-class Game extends React.Component {
+class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -97,7 +47,10 @@ class Game extends React.Component {
   }
 
   render() {
-    const ticTacToe = "MORPION GAME with ReactJS";
+    const data = {
+      styles: {fontSize: '20px'},
+      ticTacToe: "MORPION GAME"
+    }
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
@@ -122,7 +75,7 @@ class Game extends React.Component {
       : "Prochain joueur : " + (this.state.xIsNext ? "M" : "J");
     return (
       <div className="game-wrapper">
-        <h1>{ticTacToe}</h1>
+        <h1 style={data.styles}>{data.ticTacToe}</h1>
         <div className="game-board">
           <Board squares={current.squares} onClick={i => this.handleClick(i)} />
           <div className="game-info">
@@ -164,6 +117,5 @@ function calculateWinner(squares) {
   return null;
 }
 
-function _reload() {
-  window.location.reload();
-}
+// reloading page
+const _reload = () => window.location.reload();
