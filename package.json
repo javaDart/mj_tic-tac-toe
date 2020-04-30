@@ -6,7 +6,7 @@
     "@sweetalert/with-react": "^0.1.1",
     "bootstrap": "^4.3.1",
     "framework7-react": "^4.4.10",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
